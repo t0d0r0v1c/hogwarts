@@ -9,13 +9,15 @@ function hogwarts(){
 add_action('wp_enqueue_scripts', 'hogwarts');
 
 /**/
-function razna_cool_sranja() {
+function razne_cool_stvari() {
     add_theme_support('title-tag'); // inserting title on the specific page trouht wp_head()
     register_nav_menu('glavniMeni', 'Glavni Meni'); //dodavanje fjonalnosti da mozemo iz apperiance menus da pravimo meni
     register_nav_menu('footerLocationOne', 'Futer lokacija jedan');
     register_nav_menu('footerLocationTwo', 'Futer lokacija dva');
 }
 
-add_action('after_setup_theme', 'razna_cool_sranja'); //after_setup_theme je hook koji kaze da se okine ova akcija nakon sto se ucita tema
+add_action('after_setup_theme', 'razne_cool_stvari'); //after_setup_theme je hook koji kaze da se okine ova akcija nakon sto se ucita tema
+
+
 
 ?>
