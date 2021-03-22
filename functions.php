@@ -19,5 +19,4 @@ function razne_cool_stvari() {
 add_action('after_setup_theme', 'razne_cool_stvari'); //after_setup_theme je hook koji kaze da se okine ova akcija nakon sto se ucita tema
 
 
-
 ?>
