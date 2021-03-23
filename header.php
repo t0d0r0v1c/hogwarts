@@ -24,7 +24,7 @@
            <ul>
               <li <?php if(is_page('about') or wp_get_post_parent_id(0) == 6) echo 'class="current-menu-item"' ?>><a href="<?php echo site_url('/about'); ?>">About</a></li>
               <li><a href="#">Programs</a></li>  
-              <li><a href="#">Events</a></li>
+              <li <?php if(get_post_type() == 'quidditch') echo 'class="current-menu-item"'; ?>><a href=" <?php echo get_post_type_archive_link('quidditch'); ?>">Events</a></li>
               <li><a href="#">Campuses</a></li>
               <!-- ovde kazemo da nam bude klasa current menu item ako smo ili na blogu ili na postu ili na archive stranici sve sa jednim uslovom get post type == post --->
               <li <?php if(get_post_type() == 'post') echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li>
