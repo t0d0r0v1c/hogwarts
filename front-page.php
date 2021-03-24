@@ -17,9 +17,22 @@
           <h2 class="headline headline--small-plus t-center">Upcoming Quidditch game</h2>
 
           <?php 
+          $today = date('Ymd'); //vraca danasnji datum year month date koristimo ga dole za 'value
           $quidditch = new WP_Query(array(
-            'post_type' => 'quidditch',
-            'posts_per_page' => 2
+            'posts_per_page' => -1,  /* -1 kaze prikazi mi sve postove koje zadovoljavaju dole zadate kriterijume*/
+            'post_type' => 'quidditch', 
+            'meta_key' => 'quidditch_date', /*from ACF kada hoces da sortiras po tome*/
+            'orderby' => /*post_date -default, 'title'- abc..., 'rand' -random, meta_value -custom order preko ACF(letters and words), meta_value_num(brojevi)*/  'meta_value_num',
+            'order'=> /*DESC je default, 'ASC' */ 'ASC',
+            'meta_query' => array(  /*fjonalnost da ne prikazuje evetove koji su se odigrali*/
+               array(
+                 'key' => 'quidditch_date', /*nas custom field*/
+                 'compare' => '>=',  //vece ili jednako
+                 'value' => $today,
+                 'type' => 'numeric'
+               )
+            )
+            
           ));
 
           while($quidditch -> have_posts()){
