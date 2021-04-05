@@ -19,11 +19,11 @@
           <?php 
           $today = date('Ymd'); //vraca danasnji datum year month date koristimo ga dole za 'value
           $quidditch = new WP_Query(array(
-            'posts_per_page' => -1,  /* -1 kaze prikazi mi sve postove koje zadovoljavaju dole zadate kriterijume*/
+            'posts_per_page' => 2,  /* -1 kaze prikazi mi sve postove koje zadovoljavaju dole zadate kriterijume*/
             'post_type' => 'quidditch', 
             'meta_key' => 'quidditch_date', /*from ACF kada hoces da sortiras po tome*/
             'orderby' => /*post_date -default, 'title'- abc..., 'rand' -random, meta_value -custom order preko ACF(letters and words), meta_value_num(brojevi)*/  'meta_value_num',
-            'order'=> /*DESC je default, 'ASC' */ 'ASC',
+            'order'=> /*DESC je default, 'ASC' */ 'DESC',
             'meta_query' => array(  /*fjonalnost da ne prikazuje evetove koji su se odigrali*/
                array(
                  'key' => 'quidditch_date', /*nas custom field*/
